@@ -30,7 +30,6 @@ class Admin(Base):
         :param user:
         :return:
         """
-        print("ASDASDSA")
         create_user_path = "/admin/users"
         r = self.client.POST(create_user_path, json=user)
         return r
@@ -97,4 +96,18 @@ class Admin(Base):
         """
         create_system_account_path = "/serviceaccounts/"
         r = self.client.POST(create_system_account_path, json=system_account)
+        return r
+
+    def get_system_accounts(self):
+        return "sadsa"
+    
+    def create_system_account_token(self, system_account_id, uuid4):
+        """
+
+        :param system_account_id:
+        :param uuid4:
+        :return:
+        """
+        create_system_account_token_path = "/serviceaccounts/%s/tokens" % (system_account_id)
+        r = self.client.POST(create_system_account_token_path, json=uuid4)
         return r
