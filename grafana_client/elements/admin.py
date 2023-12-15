@@ -30,6 +30,7 @@ class Admin(Base):
         :param user:
         :return:
         """
+        print("ASDASDSA")
         create_user_path = "/admin/users"
         r = self.client.POST(create_user_path, json=user)
         return r
@@ -86,4 +87,14 @@ class Admin(Base):
         action = "enable" if enabled else "disable"
         set_user_enabled = "/admin/users/%s/%s" % (user_id, action)
         r = self.client.POST(set_user_enabled)
+        return r
+
+    def create_system_account(self, system_account):
+        """
+
+        :param system_account:
+        :return:
+        """
+        create_system_account_path = "/serviceaccounts/"
+        r = self.client.POST(create_system_account_path, json=system_account)
         return r
