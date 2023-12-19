@@ -27,11 +27,11 @@ omit = [
 ]
 
 [tool.ruff]
+ignore-init-module-imports = true
 line-length = 120
 extend-exclude = [
   "grafana_client/elements/__init__.py",
 ]
-
 
 # ===================
 # Tasks configuration

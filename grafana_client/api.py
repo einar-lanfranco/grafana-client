@@ -26,12 +26,12 @@ from .elements import (
     Plugin,
     Rbac,
     Search,
+    ServiceAccount,
+    ServiceAccounts,
     Snapshots,
     Teams,
     User,
     Users,
-    ServiceAccounts,
-    ServiceAccount,
 )
 from .util import as_bool
 
