@@ -16,4 +16,4 @@ from .search import Search
 from .snapshots import Snapshots
 from .team import Teams
 from .user import User, Users
-from .system_account import SystemAccount, SystemAccounts
+from .service_account import ServiceAccount, ServiceAccounts

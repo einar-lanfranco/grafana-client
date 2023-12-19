@@ -88,26 +88,44 @@ class Admin(Base):
         r = self.client.POST(set_user_enabled)
         return r
 
-    def create_system_account(self, system_account):
+    def create_service_account(self, service_account):
         """
 
-        :param system_account:
+        :param service_account:
         :return:
         """
-        create_system_account_path = "/serviceaccounts/"
-        r = self.client.POST(create_system_account_path, json=system_account)
+        create_service_account_path = "/serviceaccounts/"
+        r = self.client.POST(create_service_account_path, json=service_account)
         return r
-
-    def get_system_accounts(self):
-        return "sadsa"
     
-    def create_system_account_token(self, system_account_id, uuid4):
+    def delete_service_account(self, service_account):
         """
 
-        :param system_account_id:
+        :param service_account:
+        :return:
+        """
+        
+        delete_service_account_path = "/serviceaccounts//%s" % (service_account_id)
+        r = self.client.DELETE(delete_service_account_path)
+        return r
+    
+    def create_service_account_token(self, service_account_id, uuid4):
+        """
+
+        :param service_account_id:
         :param uuid4:
         :return:
         """
-        create_system_account_token_path = "/serviceaccounts/%s/tokens" % (system_account_id)
-        r = self.client.POST(create_system_account_token_path, json=uuid4)
+        create_service_account_token_path = "/serviceaccounts/%s/tokens" % (service_account_id)
+        r = self.client.POST(create_service_account_token_path, json=uuid4)
+        return r
+    
+    def delete_service_account_token(self, service_account_id, service_account_token_id):
+        """
+        :param service_account_id:
+        :param service_account_token_id:
+        :return:
+        """
+        delete_service_account_token_path = "/serviceaccounts/%s/tokens/%s" % (service_account_id,service_account_token_id)
+        r = self.client.DELETE(delete_service_account_token_path)
         return r

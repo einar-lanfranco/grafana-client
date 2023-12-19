@@ -30,8 +30,8 @@ from .elements import (
     Teams,
     User,
     Users,
-    SystemAccounts,
-    SystemAccount,
+    ServiceAccounts,
+    ServiceAccount,
 )
 from .util import as_bool
 
@@ -82,8 +82,8 @@ class GrafanaApi:
         self.snapshots = Snapshots(self.client)
         self.notifications = Notifications(self.client)
         self.plugin = Plugin(self.client)
-        self.systemaccounts= SystemAccounts(self.client)
-        self.systemaccount= SystemAccount(self.client)
+        self.serviceaccounts= ServiceAccounts(self.client)
+        self.serviceaccount= ServiceAccount(self.client)
 
     def connect(self):
         try:

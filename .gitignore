@@ -7,6 +7,7 @@ grafana_client/version.py
 __pycache__/
 *.py[cod]
 *$py.class
+evnv/
 
 # C extensions
 *.so
