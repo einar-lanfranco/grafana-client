@@ -28,7 +28,7 @@ class ServiceAccounts(Base):
 
         if perpage:
             params.append("perpage=%s" % perpage)
-        
+
         show_sa_path += "?"
         show_sa_path += "&".join(params)
         if iterate:
@@ -51,23 +51,23 @@ class ServiceAccounts(Base):
         :param service_account_id:
         :return:
         """
-        get_actual_user_path = "/serviceaccounts/%s?accesscontrol=true" %(service_account_id)
+        get_actual_user_path = "/serviceaccounts/%s?accesscontrol=true" % (service_account_id)
         r = self.client.GET(get_actual_user_path)
         return r
 
-    def find_service_account(self, service_account_name=''):
+    def find_service_account(self, service_account_name=""):
         """
 
         :param service_account_name:
         :return:
         """
         s = self.search_service_accounts(query=service_account_name)[0]
-        if s['totalCount'] == 1:
-            return s['serviceAccounts'][0]
-        elif s['totalCount'] > 1:
-            return 'More than one service account matched'
+        if s["totalCount"] == 1:
+            return s["serviceAccounts"][0]
+        elif s["totalCount"] > 1:
+            return "More than one service account matched"
         else:
-            return 'No service account matched'        
+            return "No service account matched"
 
     # def update_user(self, user_id, user):
     #     """
@@ -101,14 +101,14 @@ class ServiceAccount(Base):
         """
         :return:
         """
-        get_actual_service_account_path = "/serviceaccounts/%s?accesscontrol=true" %(service_account_id)
+        get_actual_service_account_path = "/serviceaccounts/%s?accesscontrol=true" % (service_account_id)
         r = self.client.GET(get_actual_service_account_path)
         return r
-    
+
     def get_actual_service_account_tokens(self, service_account_id):
         """
         :return:
         """
-        get_actual_service_account_tokens_path = "/serviceaccounts/%s/tokens" %(service_account_id)
+        get_actual_service_account_tokens_path = "/serviceaccounts/%s/tokens" % (service_account_id)
         r = self.client.GET(get_actual_service_account_tokens_path)
         return r

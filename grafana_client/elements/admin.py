@@ -97,18 +97,18 @@ class Admin(Base):
         create_service_account_path = "/serviceaccounts/"
         r = self.client.POST(create_service_account_path, json=service_account)
         return r
-    
-    def delete_service_account(self, service_account):
+
+    def delete_service_account(self, service_account_id):
         """
 
         :param service_account:
         :return:
         """
-        
+
         delete_service_account_path = "/serviceaccounts//%s" % (service_account_id)
         r = self.client.DELETE(delete_service_account_path)
         return r
-    
+
     def create_service_account_token(self, service_account_id, uuid4):
         """
 
@@ -119,13 +119,16 @@ class Admin(Base):
         create_service_account_token_path = "/serviceaccounts/%s/tokens" % (service_account_id)
         r = self.client.POST(create_service_account_token_path, json=uuid4)
         return r
-    
+
     def delete_service_account_token(self, service_account_id, service_account_token_id):
         """
         :param service_account_id:
         :param service_account_token_id:
         :return:
         """
-        delete_service_account_token_path = "/serviceaccounts/%s/tokens/%s" % (service_account_id,service_account_token_id)
+        delete_service_account_token_path = "/serviceaccounts/%s/tokens/%s" % (
+            service_account_id,
+            service_account_token_id,
+        )
         r = self.client.DELETE(delete_service_account_token_path)
         return r

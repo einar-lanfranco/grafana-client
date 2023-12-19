@@ -1,13 +1,15 @@
-
 from grafana_client import GrafanaApi
 import os
-import uuid
+# import uuid
 
 
 from dotenv import load_dotenv
+
 load_dotenv(".env")
-print("sadfsadasfsaf"+os.getenv("GRAFANA_URL"))
-grafana_api = GrafanaApi.from_url(url=os.getenv("GRAFANA_URL"),credential=(os.getenv("GRAFANA_USER_API"),os.getenv("GRAFANA_PASS_API")))
+print("sadfsadasfsaf" + os.getenv("GRAFANA_URL"))
+grafana_api = GrafanaApi.from_url(
+    url=os.getenv("GRAFANA_URL"), credential=(os.getenv("GRAFANA_USER_API"), os.getenv("GRAFANA_PASS_API"))
+)
 print(dir(grafana_api.admin))
 
 ###ACA es lo que necesito
@@ -31,10 +33,10 @@ print(dir(grafana_api.admin))
 # https://grafana.csirtamericas.org/api/access-control/dashboards/tEDfUqmIk/users/203
 
 # print(grafana_api.serviceaccounts.search_service_accounts(query="juan"))
-sa= grafana_api.serviceaccounts.find_service_account(service_account_name="rjuan")
+sa = grafana_api.serviceaccounts.find_service_account(service_account_name="rjuan")
 
-print(grafana_api.serviceaccount.get_actual_service_account(sa['id']))
-tokens=(grafana_api.serviceaccount.get_actual_service_account_tokens(sa['id']))
+print(grafana_api.serviceaccount.get_actual_service_account(sa["id"]))
+tokens = grafana_api.serviceaccount.get_actual_service_account_tokens(sa["id"])
 # print(tokens[0]['id'])
 # print(sa['id'])
 # print(grafana_api.admin.delete_service_account_token(sa['id'],(tokens[0]['id'])))

@@ -82,8 +82,8 @@ class GrafanaApi:
         self.snapshots = Snapshots(self.client)
         self.notifications = Notifications(self.client)
         self.plugin = Plugin(self.client)
-        self.serviceaccounts= ServiceAccounts(self.client)
-        self.serviceaccount= ServiceAccount(self.client)
+        self.serviceaccounts = ServiceAccounts(self.client)
+        self.serviceaccount = ServiceAccount(self.client)
 
     def connect(self):
         try:

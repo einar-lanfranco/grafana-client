@@ -100,7 +100,7 @@ class Folder(Base):
         update_folder_permissions_path = "/folders/%s/permissions" % uid
         r = self.client.POST(update_folder_permissions_path, json=items)
         return r
-    
+
     def update_folder_permissions_for_user(self, uid_folder, id_user, permissions):
         """
 
@@ -111,6 +111,6 @@ class Folder(Base):
         :return:
         """
 
-        update_folder_permissions_path_for_user = "/access-control/folders/%s/users/%s" % (uid_folder,id_user)
+        update_folder_permissions_path_for_user = "/access-control/folders/%s/users/%s" % (uid_folder, id_user)
         r = self.client.POST(update_folder_permissions_path_for_user, json=permissions)
         return r
