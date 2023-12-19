@@ -45,15 +45,15 @@ class ServiceAccounts(Base):
 
         return list_of_sa
 
-    # def get_service_account(self, service_account_id):
-    #     """
+    def get_service_account(self, service_account_id):
+        """
 
-    #     :param service_account_id:
-    #     :return:
-    #     """
-    #     get_actual_user_path = "/serviceaccounts/%s?accesscontrol=true" %(service_account_id)
-    #     r = self.client.GET(get_actual_user_path)
-    #     return r
+        :param service_account_id:
+        :return:
+        """
+        get_actual_user_path = "/serviceaccounts/%s?accesscontrol=true" %(service_account_id)
+        r = self.client.GET(get_actual_user_path)
+        return r
 
     def find_service_account(self, service_account_name=''):
         """
